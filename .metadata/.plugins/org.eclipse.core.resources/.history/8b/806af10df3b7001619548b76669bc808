@@ -99,7 +99,7 @@ public class Main {
 		System.out.println();
 		StrategyPayouts payout = new StrategyPayouts();
 		payout.printPlayer1Payout(player1, player2, game1, lenght, width);
-		payout.printPlayer2Payout(player1, player2, game1, lenght, width);
+
 		System.out.println("stop");
 		input.close();
 	}

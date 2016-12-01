@@ -2,13 +2,13 @@ import java.util.Scanner;
 
 class Player{
 	
-	double[] strategy;
+	int[] strategy;
 	
 	void setStrategy(int gameLenght){
 		Scanner input = new Scanner(System.in);			 //ignore warning
-		strategy = new double[gameLenght];
+		strategy = new int[gameLenght];
 		for(int i=0;i<gameLenght;i++){
-			strategy[i]=input.nextDouble();
+			strategy[i]=input.nextInt();
 		}
 		//input.close();
 	}
@@ -21,25 +21,25 @@ class Player{
 }
 
 class Game{
-	double[][] player1Payout;
-	double[][] player2Payout;
+	int[][] player1Payout;
+	int[][] player2Payout;
 	
 	void setP1Payout(int gameLenght, int gameWidth){
-		player1Payout = new double[gameWidth][gameLenght];
+		player1Payout = new int[gameWidth][gameLenght];
 		Scanner input = new Scanner(System.in); 		//ignore warning
 		for(int i=0;i<gameWidth;i++){
 			for(int j=0;j<gameLenght;j++){
-				player1Payout[i][j] = input.nextDouble();
+				player1Payout[i][j] = input.nextInt();
 			}
 		}
 		//input.close();
 	}
 	void setP2Payout(int gameLenght, int gameWidth){
-		player2Payout = new double[gameWidth][gameLenght];
+		player2Payout = new int[gameWidth][gameLenght];
 		Scanner input = new Scanner(System.in); 		//ignore warning
 		for(int i=0;i<gameWidth;i++){
 			for(int j=0;j<gameLenght;j++){
-				player2Payout[i][j] = input.nextDouble();
+				player2Payout[i][j] = input.nextInt();
 			}
 		}
 		//input.close();
@@ -56,23 +56,8 @@ class Game{
 }
 
 class StrategyPayouts{
-	void printPlayer1Payout(Player player1, Player player2, Game game, int lenght, int width){
-		double player1Payout=0;
-		for(int i=0;i<lenght;i++){
-			for(int j=0;j<width;j++){
-				player1Payout=player1Payout+player1.strategy[j]*player2.strategy[i]*game.player1Payout[i][j];
-			}
-		}
-		System.out.println(player1Payout);
-	}
-	void printPlayer2Payout(Player player1, Player player2, Game game, int lenght, int width){
-		double player1Payout=0;
-		for(int i=0;i<lenght;i++){
-			for(int j=0;j<width;j++){
-				player1Payout=player1Payout+player1.strategy[j]*player2.strategy[i]*game.player2Payout[i][j];
-			}
-		}
-		System.out.println(player1Payout);
+	void printPlayer1Payout(Player player1, Game game){
+		
 	}
 }
 
@@ -96,10 +81,9 @@ public class Main {
 		player1.setStrategy(lenght);
 		System.out.println("Enter player 2 strategy");
 		player2.setStrategy(width);
-		System.out.println();
-		StrategyPayouts payout = new StrategyPayouts();
-		payout.printPlayer1Payout(player1, player2, game1, lenght, width);
-		payout.printPlayer2Payout(player1, player2, game1, lenght, width);
+		
+		game1.printPayout(lenght, width);
+
 		System.out.println("stop");
 		input.close();
 	}
