@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 class Player{
 	
-	private double[] strategy;
-	private double[][] payout;
+	double[] strategy;
+	double[][] payout;
 	Player(int gameLenght){
 		Scanner input = new Scanner(System.in);			 //ignore warning
 		strategy = new double[gameLenght];
