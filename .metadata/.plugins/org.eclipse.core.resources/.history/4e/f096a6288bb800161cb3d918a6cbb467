@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Player{
-	private int noOfStrategies;
+	int noOfStrategies;
 	private double[] strategy;
 	private double[][] payout;
 	Player(){

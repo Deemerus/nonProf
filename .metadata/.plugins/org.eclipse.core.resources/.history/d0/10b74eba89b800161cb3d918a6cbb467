@@ -1,21 +1,13 @@
 import java.util.Scanner;
 
 public class Player{
-	private int noOfStrategies;
+	
 	private double[] strategy;
 	private double[][] payout;
-	Player(){
-		Scanner input = new Scanner(System.in);			//ignore warning
-		this.noOfStrategies = input.nextInt();
-	}
-	int getNoOfStrategies()
-	{
-		return noOfStrategies;
-	}
-	void setStrategy(){
+	Player(int gameLenght){
 		Scanner input = new Scanner(System.in);			 //ignore warning
-		strategy = new double[noOfStrategies];
-		for(int i=0;i<noOfStrategies;i++){
+		strategy = new double[gameLenght];
+		for(int i=0;i<gameLenght;i++){
 			strategy[i]=input.nextDouble();
 		}
 		//input.close();

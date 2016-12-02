@@ -1,16 +1,12 @@
 import java.util.Scanner;
 
 public class Player{
-	private int noOfStrategies;
+	int noOfStrategies;
 	private double[] strategy;
 	private double[][] payout;
 	Player(){
 		Scanner input = new Scanner(System.in);			//ignore warning
 		this.noOfStrategies = input.nextInt();
-	}
-	int getNoOfStrategies()
-	{
-		return noOfStrategies;
 	}
 	void setStrategy(){
 		Scanner input = new Scanner(System.in);			 //ignore warning
