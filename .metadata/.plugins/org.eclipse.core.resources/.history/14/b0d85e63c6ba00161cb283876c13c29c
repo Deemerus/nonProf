@@ -11,9 +11,9 @@ public class Main {
 		player2.setStrategy();
 		System.out.println();
 		System.out.println("Enter player one payouts");
-		player1.setPayout(player1,player2);
+		player1.setPayout(player1.getNoOfStrategies(),player2.getNoOfStrategies());
 		System.out.println("Enter player two payouts");
-		player2.setPayout(player1,player2);
+		player2.setPayout(player1.getNoOfStrategies(),player2.getNoOfStrategies());
 		player1.printPayout(player2);
 		player2.printPayout(player1);
 		System.out.println("stop");

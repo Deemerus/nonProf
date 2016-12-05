@@ -24,11 +24,11 @@ public class Player{
 		//input.close();
 	}
 	
-	void setPayout(Player player1, Player player2){
-		payout = new double[player2.getNoOfStrategies()][player1.getNoOfStrategies()];
+	void setPayout(){
+		payout = new double[player2.getNoOfStrategies()][gameLenght];
 		Scanner input = new Scanner(System.in); 		//ignore warning
-		for(int i=0;i<player2.getNoOfStrategies();i++){
-			for(int j=0;j<player1.getNoOfStrategies();j++){
+		for(int i=0;i<gameWidth;i++){
+			for(int j=0;j<gameLenght;j++){
 				payout[i][j] = input.nextDouble();
 			}
 		}
