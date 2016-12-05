@@ -34,11 +34,11 @@ public class Player{
 			System.out.print(strategy[i] + " ");
 		}
 	}
-	void printPayout(Player player2){
+	void printPayout(Player player1, Player player2){
 		double playerPayout=0;
-		for(int i=0;i<player2.getNoOfStrategies();i++){
-			for(int j=0;j<getNoOfStrategies();j++){
-				playerPayout=playerPayout+this.strategy[j]*player2.strategy[i]*this.payout[i][j];
+		for(double i:player2.strategy){
+			for(double j:strategy){
+				playerPayout=playerPayout+strategy[j]*player2.strategy[i]*payout[i][j];
 			}
 		}
 		System.out.println(playerPayout);
