@@ -25,10 +25,15 @@ public class app {
 				} else System.out.println("Incorrect command");
 				
 			} else if (action.equals("army")) {
-					System.out.println("Pikeman count: " + Pikeman.pikemanCount);
-					System.out.println("Archer count: " + Archer.archerCount);
-					System.out.println("Knight count: " + Knight.knightCount);
-			} else {
+				for (Troop troop : army) {
+					System.out.println("Your army contains " + Pikeman.pikemanCount+1 + " Pikeman and");
+				}
+
+			} else if (action.equals("spawnPikeman")) {
+				army.add(new Pikeman());
+			}
+
+			else {
 				System.out.println("wrong command");
 			}
 			

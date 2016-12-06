@@ -12,7 +12,6 @@ public class app {
 		for (;;) {
 			System.out.println("Type your command.");
 			String action = input.next();
-			
 			if (action.equals("spawn")) {
 				System.out.println("What kind of troop would you like to spawn.");
 				String troop = input.next();
@@ -23,12 +22,16 @@ public class app {
 				} else if(troop.equals("archer")){
 					army.add(new Archer());
 				} else System.out.println("Incorrect command");
-				
 			} else if (action.equals("army")) {
-					System.out.println("Pikeman count: " + Pikeman.pikemanCount);
-					System.out.println("Archer count: " + Archer.archerCount);
-					System.out.println("Knight count: " + Knight.knightCount);
-			} else {
+				for (Troop troop : army) {
+					System.out.println("Troop number: " + troop.getID());
+				}
+
+			} else if (action.equals("spawnPikeman")) {
+				army.add(new Pikeman());
+			}
+
+			else {
 				System.out.println("wrong command");
 			}
 			

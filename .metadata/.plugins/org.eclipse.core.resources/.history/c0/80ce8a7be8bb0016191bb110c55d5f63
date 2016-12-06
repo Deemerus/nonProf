@@ -28,7 +28,13 @@ public class app {
 					System.out.println("Pikeman count: " + Pikeman.pikemanCount);
 					System.out.println("Archer count: " + Archer.archerCount);
 					System.out.println("Knight count: " + Knight.knightCount);
-			} else {
+				}
+
+			} else if (action.equals("spawnPikeman")) {
+				army.add(new Pikeman());
+			}
+
+			else {
 				System.out.println("wrong command");
 			}
 			
