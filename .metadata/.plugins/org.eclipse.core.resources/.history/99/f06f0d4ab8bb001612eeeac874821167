@@ -21,7 +21,7 @@ public class app {
 				}
 
 			} else if (action.equals("spawnPikeman")){
-				army.add(new Pikeman());
+				army.add(new Pikeman("leftFlank"));
 			}
 
 			else {

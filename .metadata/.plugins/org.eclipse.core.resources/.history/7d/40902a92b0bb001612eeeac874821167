@@ -20,8 +20,6 @@ public class app {
 					System.out.println("Troop number: " + troop.getID());
 				}
 
-			} else if (action.equals("spawnPikeman")){
-				army.add(new Pikeman());
 			}
 
 			else {

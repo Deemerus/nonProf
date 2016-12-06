@@ -1,0 +1,10 @@
+package knightarcherandfootman;
+
+public class Pikeman extends Troop {
+
+	public Pikeman() {
+		atackType = "melee";
+		
+	}
+
+}

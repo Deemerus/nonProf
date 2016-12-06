@@ -13,9 +13,10 @@ public class app {
 			System.out.println("Type you action.");
 			String action = input.next();
 			System.out.println(action);
-			if (action.equals("spawn")) {
-				army.add(new Troop());
-			} else if (action.equals("army")) {
+			//if (action.equals("spawn")) {
+				//army.add(new Troop());
+			//} else 
+				if (action.equals("army")) {
 				for (Troop troop : army) {
 					System.out.println("Troop number: " + troop.getID());
 				}

@@ -7,6 +7,7 @@ public class app {
 
 	public static void main(String[] args) {
 		ArrayList<Troop> army = new ArrayList<Troop>();
+		Pikeman pikeman = new Pikeman();
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		for (;;) {
