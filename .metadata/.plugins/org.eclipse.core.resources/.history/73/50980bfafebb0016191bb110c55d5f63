@@ -9,7 +9,8 @@ public class app {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		ArrayList<Troop> army = new ArrayList<Troop>();
-		ArrayList<Troop> opArmy = readEnemyArmy();
+		
+		
 		
 		System.out.println("Pikeman count: " + Pikeman.opPikemanCount);
 		System.out.println("Archer count: " + Archer.opArcherCount);

@@ -9,8 +9,20 @@ public class app {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		ArrayList<Troop> army = new ArrayList<Troop>();
-		ArrayList<Troop> opArmy = readEnemyArmy();
-		
+		ArrayList<Troop> opArmy = new ArrayList<Troop>();
+		String fileName = "AIarmy.txt";
+		File textFile = new File(fileName);
+		Scanner in = new Scanner(textFile);
+		while(in.hasNextLine()){
+			String line = in.nextLine();
+			if(line.equals("pikeman")) {
+				opArmy.add(new Pikeman(0));
+			} else if(line.equals("knight")){
+				opArmy.add(new Knight(0));
+			} else if(line.equals("archer")){
+				opArmy.add(new Archer(0));
+			}
+		}
 		System.out.println("Pikeman count: " + Pikeman.opPikemanCount);
 		System.out.println("Archer count: " + Archer.opArcherCount);
 		System.out.println("Knight count: " + Knight.opKnightCount);
@@ -41,23 +53,7 @@ public class app {
 			}
 		}
 		input.close();
+		in.close();
 	}
-public static ArrayList<Troop> readEnemyArmy() throws FileNotFoundException{
-	ArrayList<Troop> opArmy = new ArrayList<Troop>();
-	String fileName = "AIarmy.txt";
-	File textFile = new File(fileName);
-	Scanner in = new Scanner(textFile);
-	while(in.hasNextLine()){
-		String line = in.nextLine();
-		if(line.equals("pikeman")) {
-			opArmy.add(new Pikeman(0));
-		} else if(line.equals("knight")){
-			opArmy.add(new Knight(0));
-		} else if(line.equals("archer")){
-			opArmy.add(new Archer(0));
-		}
-	}
-	in.close();
-	return opArmy;
-}
+
 }

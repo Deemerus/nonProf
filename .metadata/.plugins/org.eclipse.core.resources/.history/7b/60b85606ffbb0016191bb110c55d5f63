@@ -11,6 +11,7 @@ public class app {
 		ArrayList<Troop> army = new ArrayList<Troop>();
 		ArrayList<Troop> opArmy = readEnemyArmy();
 		
+		
 		System.out.println("Pikeman count: " + Pikeman.opPikemanCount);
 		System.out.println("Archer count: " + Archer.opArcherCount);
 		System.out.println("Knight count: " + Knight.opKnightCount);
