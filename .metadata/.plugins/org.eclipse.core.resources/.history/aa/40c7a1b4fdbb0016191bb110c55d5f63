@@ -13,7 +13,7 @@ public class Archer extends Troop {
 	{
 		atackType = "melee";
 		ID = opArcherCount;
-		opArcherCount++;
+		opPikemanCount++;
 	}
 
 

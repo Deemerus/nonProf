@@ -11,9 +11,7 @@ public class Pikeman extends Troop {
 	}
 	public Pikeman(int a)
 	{
-		atackType = "melee";
-		ID = opPikemanCount;
-		opPikemanCount++;
+		
 	}
 
 }

@@ -9,12 +9,5 @@ public class Knight extends Troop {
 		knightCount++;
 		System.out.println("Knight number " + ID + " spawned and has " + atackType + " atack type.");
 	}
-	public Knight(int a)
-	{
-		atackType = "horse";
-		ID = opKnightCount;
-		opKnightCount++;
-	}
-
 
 }

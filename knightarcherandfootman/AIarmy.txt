@@ -1,0 +1,5 @@
+pikeman
+knight
+knight
+pikeman
+archer

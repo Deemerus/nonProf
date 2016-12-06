@@ -22,10 +22,8 @@ public class app {
 			} else if(line.equals("archer")){
 				opArmy.add(new Archer(0));
 			}
+			
 		}
-		System.out.println("Pikeman count: " + Pikeman.opPikemanCount);
-		System.out.println("Archer count: " + Archer.opArcherCount);
-		System.out.println("Knight count: " + Knight.opKnightCount);
 		Scanner input = new Scanner(System.in);
 		for (;;) {
 			System.out.println("Type your command.");
