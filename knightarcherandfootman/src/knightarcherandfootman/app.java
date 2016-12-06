@@ -10,24 +10,31 @@ public class app {
 		@SuppressWarnings("resource")
 		Scanner input = new Scanner(System.in);
 		for (;;) {
-			System.out.println("Type you action.");
+			System.out.println("Type your command.");
 			String action = input.next();
-			System.out.println(action);
 			if (action.equals("spawn")) {
-				army.add(new Troop());
+				System.out.println("What kind of troop would you like to spawn.");
+				String troop = input.next();
+				if(troop.equals("pikeman")) {
+					army.add(new Pikeman());
+				} else if(troop.equals("knight")){
+					army.add(new Knight());
+				} else if(troop.equals("archer")){
+					army.add(new Archer());
+				} else System.out.println("Incorrect command");
 			} else if (action.equals("army")) {
 				for (Troop troop : army) {
 					System.out.println("Troop number: " + troop.getID());
 				}
 
-			} else if (action.equals("spawnPikeman")){
+			} else if (action.equals("spawnPikeman")) {
 				army.add(new Pikeman());
 			}
 
 			else {
 				System.out.println("wrong command");
 			}
-
+			
 		}
 
 	}

@@ -1,0 +1,12 @@
+package knightarcherandfootman;
+
+public class Archer extends Troop {
+
+	public Archer() {
+		atackType = "ranged";
+		ID = count;
+		count++;
+		System.out.println("Archer number " + ID + " spawned and has " + atackType + " atack type.");
+	}
+
+}
