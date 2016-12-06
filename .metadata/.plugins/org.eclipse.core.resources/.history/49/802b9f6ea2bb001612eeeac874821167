@@ -1,0 +1,22 @@
+package knightarcherandfootman;
+
+import java.util.Scanner;
+
+public class app {
+
+	public static void main(String[] args) {
+		Troop[] army = null;
+		@SuppressWarnings("resource")
+		Scanner input = new Scanner(System.in);
+		for (;;) {
+			System.out.println("Type you action.");
+			String action = input.next();
+			if (action == "spawn") {
+				army = new Troop[1];
+			}
+
+		}
+
+	}
+
+}
