@@ -1,0 +1,8 @@
+package librarycatalogue;
+import java.util.ArrayList;
+
+public class Book extends Paper {
+	private static int ISBN;
+	private static String author;
+	private ArrayList<String> Grade = new ArrayList<String>();
+}

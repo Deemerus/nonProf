@@ -1,0 +1,6 @@
+package librarycatalogue;
+
+public class Newspaper extends Paper {
+	protected static int date;
+	protected static String subtitle;
+}

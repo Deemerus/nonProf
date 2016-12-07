@@ -1,0 +1,6 @@
+package librarycatalogue;
+
+public class Letter extends Paper {
+	private String author;
+	private int date;
+}

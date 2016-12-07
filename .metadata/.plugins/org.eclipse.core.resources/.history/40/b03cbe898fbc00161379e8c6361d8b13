@@ -1,0 +1,17 @@
+package librarycatalogue;
+
+import java.util.Scanner;
+
+public class app {
+
+	public static void main(String[] args) {
+		
+	}
+	Paper add(){
+		Scanner input = new Scanner(System.in);
+		String type = input.next();
+		Paper paper = new Paper();
+		input.close();
+		return paper;
+	}
+}

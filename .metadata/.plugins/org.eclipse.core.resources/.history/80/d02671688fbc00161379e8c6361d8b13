@@ -1,0 +1,15 @@
+package librarycatalogue;
+
+import java.util.ArrayList;
+
+public class app {
+
+	public static void main(String[] args) {
+		
+	}
+	Paper add(){
+		Scanner input = new Scanner(System.in);
+		Paper paper = new Paper();
+		return paper;
+	}
+}

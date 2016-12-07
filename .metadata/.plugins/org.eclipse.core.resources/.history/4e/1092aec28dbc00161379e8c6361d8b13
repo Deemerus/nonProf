@@ -1,0 +1,5 @@
+package librarycatalogue;
+
+public class Book extends Paper {
+
+}

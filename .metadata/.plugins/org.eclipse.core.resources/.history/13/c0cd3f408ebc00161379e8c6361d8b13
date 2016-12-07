@@ -1,0 +1,5 @@
+package librarycatalogue;
+
+public class Newspaper extends Paper {
+
+}

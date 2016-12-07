@@ -1,0 +1,8 @@
+package librarycatalogue;
+
+public class Paper {
+	protected static int id;
+	protected static String title = null;
+	protected static int date;
+	protected int count=0;
+}

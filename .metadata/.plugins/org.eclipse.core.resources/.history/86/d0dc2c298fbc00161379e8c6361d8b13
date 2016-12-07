@@ -1,0 +1,14 @@
+package librarycatalogue;
+
+import java.util.ArrayList;
+
+public class app {
+
+	public static void main(String[] args) {
+		
+	}
+	Paper add(Paper paper){
+		
+		return library;
+	}
+}

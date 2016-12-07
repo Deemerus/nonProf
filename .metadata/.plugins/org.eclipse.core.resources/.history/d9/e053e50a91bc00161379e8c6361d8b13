@@ -1,0 +1,12 @@
+package librarycatalogue;
+import java.util.ArrayList;
+
+public class Book extends Paper {
+	private int ISBN;
+	private String author;
+	private ArrayList<String> grade = new ArrayList<String>();
+	private String publisher;
+	public Book(){
+		System.out.println("Enter ISBN number.");
+	}
+}

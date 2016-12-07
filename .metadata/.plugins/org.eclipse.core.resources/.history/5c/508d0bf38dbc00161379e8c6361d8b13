@@ -1,0 +1,7 @@
+package librarycatalogue;
+
+public class Book extends Paper {
+	private static int ISBN;
+	private static String author;
+	private StringList<String> Grade = new StringList<String>();
+}
