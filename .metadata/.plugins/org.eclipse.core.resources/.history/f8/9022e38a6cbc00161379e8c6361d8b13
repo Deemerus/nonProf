@@ -1,0 +1,10 @@
+package knightarcherandfootman;
+
+import java.util.ArrayList;
+
+import troops.Troop;
+
+public interface battlefield {
+	ArrayList<Troop> playerLeftFlank = new ArrayList<Troop>();
+
+}

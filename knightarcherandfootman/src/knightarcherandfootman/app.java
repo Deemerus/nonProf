@@ -5,15 +5,17 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import troops.Archer;
+import troops.Knight;
+import troops.Pikeman;
+import troops.Troop;
+
 public class app {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		ArrayList<Troop> army = new ArrayList<Troop>();
 		ArrayList<Troop> opArmy = readEnemyArmy();
-		
-		System.out.println("Pikeman count: " + Pikeman.opPikemanCount);
-		System.out.println("Archer count: " + Archer.opArcherCount);
-		System.out.println("Knight count: " + Knight.opKnightCount);
+		Troop.printArmy(false);
 		Scanner input = new Scanner(System.in);
 		for (;;) {
 			System.out.println("Type your command.");
@@ -28,12 +30,12 @@ public class app {
 					army.add(new Knight());
 				} else if(troop.equals("archer")){
 					army.add(new Archer());
-				} else System.out.println("Incorrect command");
-				
+				} else {
+					System.out.println("Incorrect command");
+				}
+	
 			} else if (action.equals("army")) {
-					System.out.println("Pikeman count: " + Pikeman.pikemanCount);
-					System.out.println("Archer count: " + Archer.archerCount);
-					System.out.println("Knight count: " + Knight.knightCount);
+				Troop.printArmy(true);
 			} else if (action.equals("close")){
 				break;
 			} else {
@@ -60,4 +62,5 @@ public static ArrayList<Troop> readEnemyArmy() throws FileNotFoundException{
 	in.close();
 	return opArmy;
 }
+
 }
