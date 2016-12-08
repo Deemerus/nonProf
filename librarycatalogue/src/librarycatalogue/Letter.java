@@ -5,16 +5,15 @@ import java.util.Scanner;
 public class Letter extends Paper {
 	private String author;
 	private int date;
-	public Letter(){
-		id=count;
+
+	public Letter(Scanner input) {
+		id = count;
 		count++;
-		Scanner input = new Scanner(System.in);
 		System.out.println("Enter title.");
-		title = input.next();
+		title = input.nextLine();
 		System.out.println("Enter author.");
-		author = input.next();
+		author = input.nextLine();
 		System.out.println("Enter date of release in YYYYMMDD format.");
-		date = input.nextInt();
-		input.close();
+		date = Integer.parseInt(input.nextLine());
 	}
 }

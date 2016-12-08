@@ -1,22 +1,21 @@
 package librarycatalogue;
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Book extends Paper {
 	private int ISBN;
 	private String author;
-	public Book(){
-		id=count;
+
+	public Book(Scanner input) {
 		count++;
-		Scanner input = new Scanner(System.in);
-		System.out.println("Enter ISBN number.");
-		ISBN = input.nextInt();
+		id = count;
 		System.out.println("Enter title.");
-		title = input.next();
+		title = input.nextLine();
 		System.out.println("Enter author.");
-		author = input.next();
+		author = input.nextLine();
+		System.out.println("Enter ISBN number.");
+		ISBN = Integer.parseInt(input.nextLine());
 		System.out.println("Enter year of release");
-		date = input.nextInt()*10000;
-		input.close();
+		date = Integer.parseInt(input.nextLine()) * 10000;
 	}
 }

@@ -1,0 +1,15 @@
+package librarycatalogue;
+
+public class Paper {
+	protected int id;
+	protected String title = null;
+	protected int date;
+	protected static int count = 0;
+	
+	static void remove(){
+		id=null;
+		title=null;
+		
+		
+	}
+}

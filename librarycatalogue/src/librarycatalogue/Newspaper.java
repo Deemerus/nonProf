@@ -4,14 +4,13 @@ import java.util.Scanner;
 
 public class Newspaper extends Paper {
 	private int date;
-	public Newspaper(){
-		id=count;
+
+	public Newspaper(Scanner input) {
+		id = count;
 		count++;
-		Scanner input = new Scanner(System.in);
 		System.out.println("Enter title.");
-		title = input.next();
+		title = input.nextLine();
 		System.out.println("Enter date of release in YYYYMMDD format.");
-		date = input.nextInt();
-		input.close();
+		date = Integer.parseInt(input.nextLine());
 	}
 }
