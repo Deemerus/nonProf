@@ -1,7 +1,10 @@
 package librarycatalogue;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,6 +62,26 @@ public class app {
 			System.out.println("Could not read file: database.txt");
 		}
 
+	}
+	
+	static ArrayList<Paper> load(){
+		ArrayList<Paper> library = new ArrayList<Paper>();
+		File file = new File("database.txt");
+		String line;
+		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+			while((line=br.readLine())!=null){
+				if(line.substring(24, 24).equals("B")){
+					library.add(new Paper(										));
+				}
+				
+			}
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("Can't find file database.txt");
+		} catch (IOException e) {
+			System.out.println("Can't read file database.txt");
+		}
+		return library;
 	}
 
 }

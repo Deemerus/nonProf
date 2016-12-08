@@ -5,11 +5,18 @@ import java.util.Scanner;
 public class Newspaper extends Paper {
 
 	public Newspaper(Scanner input) {
-		id = count;
 		count++;
+		id = count;
 		System.out.println("Enter title.");
 		title = input.nextLine();
 		System.out.println("Enter date of release in YYYYMMDD format.");
 		date = Integer.parseInt(input.nextLine());
+	}
+
+	public Newspaper(String title, int date) {
+		this.title = title;
+		this.date = date;
+		count++;
+		id = count;
 	}
 }

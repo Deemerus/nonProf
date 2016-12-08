@@ -16,4 +16,13 @@ public class Book extends Paper {
 		System.out.println("Enter year of release");
 		date = Integer.parseInt(input.nextLine()) * 10000;
 	}
+
+	public Book(String title, String author, int ISBN, int date) {
+		this.title = title;
+		this.author = author;
+		this.date = date;
+		this.ISBN = ISBN;
+		count++;
+		id = count;
+	}
 }
