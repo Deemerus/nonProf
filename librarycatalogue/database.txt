@@ -1,0 +1,2 @@
+class librarycatalogue.Book//book1//123//1230000//123
+class librarycatalogue.Letter//letter1//123//123//0

@@ -1,5 +1,9 @@
 package librarycatalogue;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,10 +17,8 @@ public class app {
 		library.add(add(input));
 		library.add(add(input));
 		remove(library, input);
-		System.out.println(library.get(0).getId());
-		System.out.println(library.get(1).getId());
-		System.out.println(library.get(2).getId());
-		
+		save(library);
+
 		input.close();
 	}
 
@@ -35,12 +37,28 @@ public class app {
 		}
 		return paper;
 	}
-	
-	static ArrayList<Paper> remove(ArrayList<Paper> library, Scanner input){
+
+	static ArrayList<Paper> remove(ArrayList<Paper> library, Scanner input) {
 		System.out.println("Type in the ID of book you want to remove from database.");
 		int id = input.nextInt();
-		library.get(id-1).remove();
+		library.get(id - 1).remove();
 		return library;
+	}
+
+	static void save(ArrayList<Paper> library) {
+		File file = new File("database.txt");
+		try (BufferedWriter br = new BufferedWriter(new FileWriter(file))) {
+			for (Paper paper : library) {
+				if (paper.getId() != 0) {
+					br.write(paper.getClass() + "//" + paper.getTitle() + "//" + paper.getAuthor() + "//"
+							+ paper.getDate() + "//" + paper.getISBN());
+					br.newLine();
+				}
+			}
+		} catch (IOException e) {
+			System.out.println("Could not read file: database.txt");
+		}
+
 	}
 
 }

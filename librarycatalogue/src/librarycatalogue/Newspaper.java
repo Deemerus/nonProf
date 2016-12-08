@@ -3,7 +3,6 @@ package librarycatalogue;
 import java.util.Scanner;
 
 public class Newspaper extends Paper {
-	private int date;
 
 	public Newspaper(Scanner input) {
 		id = count;

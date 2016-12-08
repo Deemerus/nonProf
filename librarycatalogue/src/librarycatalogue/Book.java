@@ -3,8 +3,6 @@ package librarycatalogue;
 import java.util.Scanner;
 
 public class Book extends Paper {
-	private int ISBN;
-	private String author;
 
 	public Book(Scanner input) {
 		count++;
