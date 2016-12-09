@@ -2,7 +2,7 @@ package librarycatalogue;
 
 public class Paper {
 	protected static int count = 0;
-	protected int id =0;
+	protected int id;
 	protected String title = null;
 	protected int date;
 	protected String author = null;

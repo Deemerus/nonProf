@@ -1,1 +1,2 @@
 class librarycatalogue.Letter//letter1//123//123//0
+class librarycatalogue.Letter//Lotr//tolkien//19800000//0

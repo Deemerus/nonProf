@@ -55,7 +55,7 @@ public class app {
 
 	static ArrayList<Paper> remove(ArrayList<Paper> library, Scanner input) {
 		System.out.println("Type in the ID of book you want to remove from database.");
-		int id = Integer.parseInt(input.nextLine());
+		int id = input.nextInt();
 		library.get(id - 1).remove();
 		return library;
 	}
