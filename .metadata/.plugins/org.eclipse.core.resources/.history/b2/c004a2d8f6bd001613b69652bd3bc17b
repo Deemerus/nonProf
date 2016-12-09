@@ -15,7 +15,10 @@ public class app {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		ArrayList<Paper> library = new ArrayList<Paper>();
-		library = load();
+
+		library.add(add(input));
+		library.add(add(input));
+		library.add(add(input));
 		remove(library, input);
 		save(library);
 
@@ -60,23 +63,20 @@ public class app {
 		}
 
 	}
-
-	static ArrayList<Paper> load() {
+	
+	static ArrayList<Paper> load(){
 		ArrayList<Paper> library = new ArrayList<Paper>();
 		File file = new File("database.txt");
 		String line;
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-			while ((line = br.readLine()) != null) {
+			while((line=br.readLine())!=null){
 				String[] words = line.split("//");
-				if (line.substring(24, 24).equals("B")) {
-					library.add(new Book(words[1], words[2], Integer.parseInt(words[4]), Integer.parseInt(words[3])));
-				} else if (line.substring(24, 24).equals("N")) {
-					library.add(new Newspaper(words[1], Integer.parseInt(words[3])));
-				} else {
-					library.add(new Letter(words[1], words[2], Integer.parseInt(words[3])));
+				if(line.substring(24, 24).equals("B")){
+					library.add(new Book(words[1], words[2], Integer.parseInt(words[4]), Integer.parseInt(words[3]);									));
 				}
+				
 			}
-
+			
 		} catch (FileNotFoundException e) {
 			System.out.println("Can't find file database.txt");
 		} catch (IOException e) {

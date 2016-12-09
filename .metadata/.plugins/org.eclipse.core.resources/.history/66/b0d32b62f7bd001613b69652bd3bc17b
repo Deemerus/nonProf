@@ -15,7 +15,10 @@ public class app {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		ArrayList<Paper> library = new ArrayList<Paper>();
-		library = load();
+		library=load();
+		library.add(add(input));
+		library.add(add(input));
+		library.add(add(input));
 		remove(library, input);
 		save(library);
 

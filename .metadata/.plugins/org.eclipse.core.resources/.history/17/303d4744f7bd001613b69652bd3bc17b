@@ -15,7 +15,10 @@ public class app {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		ArrayList<Paper> library = new ArrayList<Paper>();
-		library = load();
+
+		library.add(add(input));
+		library.add(add(input));
+		library.add(add(input));
 		remove(library, input);
 		save(library);
 
@@ -73,8 +76,9 @@ public class app {
 				} else if (line.substring(24, 24).equals("N")) {
 					library.add(new Newspaper(words[1], Integer.parseInt(words[3])));
 				} else {
-					library.add(new Letter(words[1], words[2], Integer.parseInt(words[3])));
+					library.add(new Letter(words[1], words[2], Integer.parseInt(words[3])))
 				}
+
 			}
 
 		} catch (FileNotFoundException e) {
