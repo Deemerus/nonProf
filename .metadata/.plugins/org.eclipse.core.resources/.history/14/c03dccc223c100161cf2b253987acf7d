@@ -32,12 +32,7 @@ public class app {
 			}else if(command.equalsIgnoreCase("close")){
 				break;
 			}else if(command.equalsIgnoreCase("addFilter")){
-				addFilter(filter,input);
-			}else if(command.equalsIgnoreCase("clearfilter")){
-				filter.setAuthor(null);
-				filter.setDate(0);
-				filter.setISBN(0);
-				filter.setTitle(null);
+				
 			}else System.out.println("Wrong command.");
 		}
 		save(library);

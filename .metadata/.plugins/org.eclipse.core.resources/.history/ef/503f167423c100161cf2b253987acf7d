@@ -32,12 +32,7 @@ public class app {
 			}else if(command.equalsIgnoreCase("close")){
 				break;
 			}else if(command.equalsIgnoreCase("addFilter")){
-				addFilter(filter,input);
-			}else if(command.equalsIgnoreCase("clearfilter")){
-				filter.setAuthor(null);
-				filter.setDate(0);
-				filter.setISBN(0);
-				filter.setTitle(null);
+				
 			}else System.out.println("Wrong command.");
 		}
 		save(library);
@@ -121,16 +116,12 @@ public class app {
 	static Paper addFilter(Paper filter, Scanner input){
 		System.out.println("What filter do u want to add?");
 		String newFilter = input.nextLine();
-		if(newFilter.equalsIgnoreCase("title")){
-			System.out.println("What title do u want to add to filter?");
-			filter.setTitle(input.nextLine());
-		}else if(newFilter.equalsIgnoreCase("Author")){
-			System.out.println("What author name do u want to add to filter?");
-			filter.setAuthor(input.nextLine());
-		}else if(newFilter.equalsIgnoreCase("isbn")){
-			System.out.println("What ISBN number do u want to add to filter?");
-			filter.setISBN(Integer.parseInt(input.nextLine()));
-		}else System.out.println("There's no such filter.");
+		{
+			Title
+			Date
+			Author
+			ISBN
+		}
 		return filter;
 	}
 }

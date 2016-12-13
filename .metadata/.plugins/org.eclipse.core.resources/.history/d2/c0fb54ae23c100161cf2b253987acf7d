@@ -32,12 +32,7 @@ public class app {
 			}else if(command.equalsIgnoreCase("close")){
 				break;
 			}else if(command.equalsIgnoreCase("addFilter")){
-				addFilter(filter,input);
-			}else if(command.equalsIgnoreCase("clearfilter")){
-				filter.setAuthor(null);
-				filter.setDate(0);
-				filter.setISBN(0);
-				filter.setTitle(null);
+				
 			}else System.out.println("Wrong command.");
 		}
 		save(library);
@@ -130,7 +125,7 @@ public class app {
 		}else if(newFilter.equalsIgnoreCase("isbn")){
 			System.out.println("What ISBN number do u want to add to filter?");
 			filter.setISBN(Integer.parseInt(input.nextLine()));
-		}else System.out.println("There's no such filter.");
+		}
 		return filter;
 	}
 }
