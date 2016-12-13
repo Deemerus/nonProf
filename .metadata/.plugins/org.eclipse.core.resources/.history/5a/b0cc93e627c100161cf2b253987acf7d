@@ -118,7 +118,7 @@ public class app {
 		for (Paper paper : library) {
 			if (paper.getId() != 0
 					& (filter.getTitle().equals("null") | filter.getTitle().equalsIgnoreCase(paper.getTitle()))
-					& (filter.getAuthor().equals("null") | filter.getAuthor().equalsIgnoreCase(paper.getAuthor()))
+					& (filter.getAuthor().equals(null) | filter.getAuthor().equalsIgnoreCase(paper.getAuthor()))
 					& (filter.getISBN() == 0 | filter.getISBN() == paper.getISBN())) {
 				System.out.printf(paper.getId() + ":\t" + paper.getTitle() + "\t" + paper.getAuthor() + "\t"
 						+ paper.getDate() + "\t" + paper.getISBN() + "\n");

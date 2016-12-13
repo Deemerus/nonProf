@@ -116,10 +116,11 @@ public class app {
 	static void print(ArrayList<Paper> library, Paper filter) {
 		System.out.printf("ID\tTitle\tAuthor\tRelease date\tISBN\n");
 		for (Paper paper : library) {
-			if (paper.getId() != 0
+			if (paper.getId() != 0 
 					& (filter.getTitle().equals("null") | filter.getTitle().equalsIgnoreCase(paper.getTitle()))
-					& (filter.getAuthor().equals("null") | filter.getAuthor().equalsIgnoreCase(paper.getAuthor()))
-					& (filter.getISBN() == 0 | filter.getISBN() == paper.getISBN())) {
+					//& (filter.getAuthor().equals(null) | filter.getAuthor().equalsIgnoreCase(paper.getAuthor()))
+					//& (filter.getISBN()==0 | filter.getISBN()==paper.getISBN())) {
+					){
 				System.out.printf(paper.getId() + ":\t" + paper.getTitle() + "\t" + paper.getAuthor() + "\t"
 						+ paper.getDate() + "\t" + paper.getISBN() + "\n");
 			}

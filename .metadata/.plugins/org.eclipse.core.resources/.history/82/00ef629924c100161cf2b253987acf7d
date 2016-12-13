@@ -18,32 +18,27 @@ public class app {
 		library = load();
 		String command;
 		Paper filter = new Paper();
-		filter.setAuthor("null");
-		filter.setDate(0);
-		filter.setISBN(0);
-		filter.setTitle("null");
-		for (;;) {
+		for(;;){
 			System.out.println("Type in command.");
 			command = input.nextLine();
-			if (command.equalsIgnoreCase("add")) {
+			if(command.equalsIgnoreCase("add")){
 				library.add(add(input));
-			} else if (command.equalsIgnoreCase("remove")) {
-				library = remove(library, input);
-			} else if (command.equalsIgnoreCase("save")) {
+			}else if(command.equalsIgnoreCase("remove")){
+				library=remove(library,input);
+			}else if(command.equalsIgnoreCase("save")){
 				save(library);
-			} else if (command.equalsIgnoreCase("print")) {
-				print(library, filter);
-			} else if (command.equalsIgnoreCase("close")) {
+			}else if(command.equalsIgnoreCase("printLibrary")){
+				printLibrary(library);
+			}else if(command.equalsIgnoreCase("close")){
 				break;
-			} else if (command.equalsIgnoreCase("addFilter")) {
-				addFilter(filter, input);
-			} else if (command.equalsIgnoreCase("clearfilter")) {
-				filter.setAuthor("null");
+			}else if(command.equalsIgnoreCase("addFilter")){
+				addFilter(filter,input);
+			}else if(command.equalsIgnoreCase("clearfilter")){
+				filter.setAuthor(null);
 				filter.setDate(0);
 				filter.setISBN(0);
-				filter.setTitle("null");
-			} else
-				System.out.println("Wrong command.");
+				filter.setTitle(null);
+			}else System.out.println("Wrong command.");
 		}
 		save(library);
 
@@ -113,33 +108,29 @@ public class app {
 		return library;
 	}
 
-	static void print(ArrayList<Paper> library, Paper filter) {
+	static void printLibrary(ArrayList<Paper> library, Paper filter) {
 		System.out.printf("ID\tTitle\tAuthor\tRelease date\tISBN\n");
 		for (Paper paper : library) {
-			if (paper.getId() != 0
-					& (filter.getTitle().equals("null") | filter.getTitle().equalsIgnoreCase(paper.getTitle()))
-					& (filter.getAuthor().equals("null") | filter.getAuthor().equalsIgnoreCase(paper.getAuthor()))
-					& (filter.getISBN() == 0 | filter.getISBN() == paper.getISBN())) {
+			if (paper.getId() != 0 & (filter.getTitle().equals(null))) {
 				System.out.printf(paper.getId() + ":\t" + paper.getTitle() + "\t" + paper.getAuthor() + "\t"
 						+ paper.getDate() + "\t" + paper.getISBN() + "\n");
 			}
 		}
 	}
-
-	static Paper addFilter(Paper filter, Scanner input) {
+	
+	static Paper addFilter(Paper filter, Scanner input){
 		System.out.println("What filter do u want to add?");
 		String newFilter = input.nextLine();
-		if (newFilter.equalsIgnoreCase("title")) {
+		if(newFilter.equalsIgnoreCase("title")){
 			System.out.println("What title do u want to add to filter?");
 			filter.setTitle(input.nextLine());
-		} else if (newFilter.equalsIgnoreCase("Author")) {
+		}else if(newFilter.equalsIgnoreCase("Author")){
 			System.out.println("What author name do u want to add to filter?");
 			filter.setAuthor(input.nextLine());
-		} else if (newFilter.equalsIgnoreCase("isbn")) {
+		}else if(newFilter.equalsIgnoreCase("isbn")){
 			System.out.println("What ISBN number do u want to add to filter?");
 			filter.setISBN(Integer.parseInt(input.nextLine()));
-		} else
-			System.out.println("There's no such filter.");
+		}else System.out.println("There's no such filter.");
 		return filter;
 	}
 }

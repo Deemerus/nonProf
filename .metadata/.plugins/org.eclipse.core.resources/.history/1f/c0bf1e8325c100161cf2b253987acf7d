@@ -18,10 +18,6 @@ public class app {
 		library = load();
 		String command;
 		Paper filter = new Paper();
-		filter.setAuthor("null");
-		filter.setDate(0);
-		filter.setISBN(0);
-		filter.setTitle("null");
 		for (;;) {
 			System.out.println("Type in command.");
 			command = input.nextLine();
@@ -38,10 +34,10 @@ public class app {
 			} else if (command.equalsIgnoreCase("addFilter")) {
 				addFilter(filter, input);
 			} else if (command.equalsIgnoreCase("clearfilter")) {
-				filter.setAuthor("null");
+				filter.setAuthor(null);
 				filter.setDate(0);
 				filter.setISBN(0);
-				filter.setTitle("null");
+				filter.setTitle(null);
 			} else
 				System.out.println("Wrong command.");
 		}
@@ -116,10 +112,10 @@ public class app {
 	static void print(ArrayList<Paper> library, Paper filter) {
 		System.out.printf("ID\tTitle\tAuthor\tRelease date\tISBN\n");
 		for (Paper paper : library) {
-			if (paper.getId() != 0
-					& (filter.getTitle().equals("null") | filter.getTitle().equalsIgnoreCase(paper.getTitle()))
-					& (filter.getAuthor().equals("null") | filter.getAuthor().equalsIgnoreCase(paper.getAuthor()))
-					& (filter.getISBN() == 0 | filter.getISBN() == paper.getISBN())) {
+			if (paper.getId() != 0 
+					& (filter.getTitle().equals(null) | filter.getTitle().equalsIgnoreCase(paper.getTitle())
+					& (filter.getAuthor().equals(null) | filter.getAuthor().equalsIgnoreCase(paper.getAuthor())
+					& (filter.getISBN()==0 | filter.getISBN()==paper.getISBN())))) {
 				System.out.printf(paper.getId() + ":\t" + paper.getTitle() + "\t" + paper.getAuthor() + "\t"
 						+ paper.getDate() + "\t" + paper.getISBN() + "\n");
 			}
