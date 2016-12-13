@@ -18,7 +18,10 @@ public class app {
 		library = load();
 		String command;
 		Paper filter = new Paper();
-		filter=clearFilter(filter);
+		filter.setAuthor("null");
+		filter.setDate(0);
+		filter.setISBN(0);
+		filter.setTitle("null");
 		for (;;) {
 			System.out.println("Type in command.");
 			command = input.nextLine();
@@ -35,7 +38,10 @@ public class app {
 			} else if (command.equalsIgnoreCase("addFilter")) {
 				addFilter(filter, input);
 			} else if (command.equalsIgnoreCase("clearfilter")) {
-				filter=clearFilter(filter);
+				filter.setAuthor("null");
+				filter.setDate(0);
+				filter.setISBN(0);
+				filter.setTitle("null");
 			} else
 				System.out.println("Wrong command.");
 		}
@@ -134,13 +140,6 @@ public class app {
 			filter.setISBN(Integer.parseInt(input.nextLine()));
 		} else
 			System.out.println("There's no such filter.");
-		return filter;
-	}
-	static Paper clearFilter(Paper filter){
-		filter.setAuthor("null");
-		filter.setDate(0);
-		filter.setISBN(0);
-		filter.setTitle("null");
 		return filter;
 	}
 }
