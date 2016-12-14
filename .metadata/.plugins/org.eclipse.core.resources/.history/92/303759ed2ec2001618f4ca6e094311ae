@@ -1,11 +1,13 @@
 package librarycatalogue;
 
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -71,24 +73,33 @@ public class app {
 	}
 
 	static void save(List<Paper> library) {
-		try (ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream("database.bin"))) {
-			os.writeObject(library);
+		try (FileOutputStream fo = new FileOutputStream("database.bin")) {
+			ObjectOutputStream os = new ObjectOutputStream(fo);
+			os.writeInt(library.size());
+			for (Paper paper : library) {
+				os.writeObject(paper);
+			}
 		} catch (IOException e) {
 			System.out.println("Could not read file: database.bin");
 		}
+
 	}
 
 	@SuppressWarnings("unchecked")
 	static List<Paper> load() {
 		List<Paper> library = new LinkedList<Paper>();
 		try (ObjectInputStream os = new ObjectInputStream(new FileInputStream("database.bin"))) {
-			library = (LinkedList<Paper>) os.readObject();
+			try {
+				library = (LinkedList<Paper>)os.readObject();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		} catch (FileNotFoundException e) {
 			System.out.println("Can't find file database.bin");
 		} catch (IOException e) {
 			System.out.println("Can't read file database.bin");
-		} catch (ClassNotFoundException e) {
-			System.out.println("Error occured while loading database.");
 		}
 		return library;
 	}
