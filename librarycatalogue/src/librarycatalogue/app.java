@@ -1,12 +1,12 @@
 package librarycatalogue;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
+import java.io.EOFException;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,7 +18,7 @@ public class app {
 		library = load();
 		String command;
 		Paper filter = new Paper();
-		filter=clearFilter(filter);
+		filter = clearFilter(filter);
 		for (;;) {
 			System.out.println("Type in command.");
 			command = input.nextLine();
@@ -35,7 +35,7 @@ public class app {
 			} else if (command.equalsIgnoreCase("addFilter")) {
 				addFilter(filter, input);
 			} else if (command.equalsIgnoreCase("clearfilter")) {
-				filter=clearFilter(filter);
+				filter = clearFilter(filter);
 			} else
 				System.out.println("Wrong command.");
 		}
@@ -68,41 +68,37 @@ public class app {
 	}
 
 	static void save(ArrayList<Paper> library) {
-		File file = new File("database.txt");
-		try (BufferedWriter br = new BufferedWriter(new FileWriter(file))) {
+		try (FileOutputStream fo = new FileOutputStream("database.bin")) {
+			ObjectOutputStream os = new ObjectOutputStream(fo);
 			for (Paper paper : library) {
 				if (paper.getId() != 0) {
-					br.write(paper.getClass() + "//" + paper.getTitle() + "//" + paper.getAuthor() + "//"
-							+ paper.getDate() + "//" + paper.getISBN());
-					br.newLine();
+					os.writeObject(paper);
 				}
 			}
 		} catch (IOException e) {
-			System.out.println("Could not read file: database.txt");
+			System.out.println("Could not read file: database.bin");
 		}
 
 	}
 
 	static ArrayList<Paper> load() {
 		ArrayList<Paper> library = new ArrayList<Paper>();
-		File file = new File("database.txt");
-		String line;
-		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-			while ((line = br.readLine()) != null) {
-				String[] words = line.split("//");
-				if (line.substring(24, 24).equals("B")) {
-					library.add(new Book(words[1], words[2], Integer.parseInt(words[4]), Integer.parseInt(words[3])));
-				} else if (line.substring(24, 24).equals("N")) {
-					library.add(new Newspaper(words[1], Integer.parseInt(words[3])));
-				} else {
-					library.add(new Letter(words[1], words[2], Integer.parseInt(words[3])));
+		try (FileInputStream fi = new FileInputStream("database.bin")) {
+			ObjectInputStream os = new ObjectInputStream(fi);
+			while (true) {
+				try {
+					library.add((Paper) os.readObject());
+				} catch (EOFException e) {
+					break;
+				} catch (ClassNotFoundException e) {
+					System.out.println("Old version of database file. Contact the administrator.");
 				}
 			}
 
 		} catch (FileNotFoundException e) {
-			System.out.println("Can't find file database.txt");
+			System.out.println("Can't find file database.bin");
 		} catch (IOException e) {
-			System.out.println("Can't read file database.txt");
+			System.out.println("Can't read file database.bin");
 		}
 		return library;
 	}
@@ -136,7 +132,8 @@ public class app {
 			System.out.println("There's no such filter.");
 		return filter;
 	}
-	static Paper clearFilter(Paper filter){
+
+	static Paper clearFilter(Paper filter) {
 		filter.setAuthor("null");
 		filter.setDate(0);
 		filter.setISBN(0);

@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Newspaper extends Paper {
 
+	private static final long serialVersionUID = -1596812180066421007L;
+
 	public Newspaper(Scanner input) {
 		count++;
 		id = count;

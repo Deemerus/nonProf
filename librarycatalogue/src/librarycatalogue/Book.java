@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Book extends Paper {
 
+	private static final long serialVersionUID = 6466904892585136517L;
+
 	public Book(Scanner input) {
 		count++;
 		id = count;

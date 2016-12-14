@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Letter extends Paper {
 
+	private static final long serialVersionUID = -4488758984150385200L;
+
 	public Letter(Scanner input) {
 		count++;
 		id = count;

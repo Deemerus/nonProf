@@ -1,8 +1,11 @@
 package librarycatalogue;
 
-public class Paper {
+import java.io.Serializable;
+
+public class Paper implements Serializable {
+	private static final long serialVersionUID = -111203575547369020L;
 	protected static int count = 0;
-	protected int id =0;
+	protected int id = 0;
 	protected String title = null;
 	protected int date = 0;
 	protected String author = null;
