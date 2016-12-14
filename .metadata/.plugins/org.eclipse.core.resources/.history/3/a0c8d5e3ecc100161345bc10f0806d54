@@ -70,7 +70,6 @@ public class app {
 	static void save(ArrayList<Paper> library) {
 		try (FileOutputStream fo = new FileOutputStream("database.bin")) {
 			ObjectOutputStream os = new ObjectOutputStream(fo);
-			os.writeInt(library.size());
 			for (Paper paper : library) {
 				if (paper.getId() != 0) {
 					os.writeObject(paper);
@@ -86,7 +85,7 @@ public class app {
 		ArrayList<Paper> library = new ArrayList<Paper>();
 		try (FileInputStream fi = new FileInputStream("database.bin")) {
 			ObjectInputStream os = new ObjectInputStream(fi);
-			for(int size = os.readInt();size>0;size--) {
+			while (true) {
 				try {
 					library.add((Paper) os.readObject());
 				} catch (EOFException e) {

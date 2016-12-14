@@ -86,7 +86,8 @@ public class app {
 		ArrayList<Paper> library = new ArrayList<Paper>();
 		try (FileInputStream fi = new FileInputStream("database.bin")) {
 			ObjectInputStream os = new ObjectInputStream(fi);
-			for(int size = os.readInt();size>0;size--) {
+			int i = os.readInt();
+			while (true) {
 				try {
 					library.add((Paper) os.readObject());
 				} catch (EOFException e) {
