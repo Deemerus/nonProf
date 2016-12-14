@@ -66,8 +66,10 @@ public class app {
 		System.out.println("Type in the ID of book you want to remove from database.");
 		int id = Integer.parseInt(input.nextLine());
 		library.remove(id - 1);
+		System.out.println("id before loop equals:" + id);
 		for (id--; id < library.size(); id++) {
-			library.get(id).setId(id + 1);
+			System.out.println("id in loop equals:" + id);
+			library.get(id).setId(id - 1);
 		}
 		return library;
 	}

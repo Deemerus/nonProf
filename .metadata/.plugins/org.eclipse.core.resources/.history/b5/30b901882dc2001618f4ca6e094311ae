@@ -67,7 +67,7 @@ public class app {
 		int id = Integer.parseInt(input.nextLine());
 		library.remove(id - 1);
 		for (id--; id < library.size(); id++) {
-			library.get(id).setId(id + 1);
+			library.get(id).setId(id - 1);
 		}
 		return library;
 	}

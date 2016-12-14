@@ -67,7 +67,8 @@ public class app {
 		int id = Integer.parseInt(input.nextLine());
 		library.remove(id - 1);
 		for (id--; id < library.size(); id++) {
-			library.get(id).setId(id + 1);
+			library.get(id).setId(id - 1);
+			;
 		}
 		return library;
 	}
@@ -77,7 +78,7 @@ public class app {
 			ObjectOutputStream os = new ObjectOutputStream(fo);
 			os.writeInt(library.size());
 			for (Paper paper : library) {
-				os.writeObject(paper);
+				s.writeObject(paper);
 			}
 		} catch (IOException e) {
 			System.out.println("Could not read file: database.bin");
