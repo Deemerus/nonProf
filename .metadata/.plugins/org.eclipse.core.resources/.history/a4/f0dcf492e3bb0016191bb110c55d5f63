@@ -1,9 +1,0 @@
-package knightarcherandfootman;
-
-public class Archer extends Troop {
-
-	public Archer() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

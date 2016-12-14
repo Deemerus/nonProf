@@ -11,6 +11,10 @@ public class Paper implements Serializable {
 	protected String author = null;
 	protected int ISBN = 0;
 
+	public static void setCount(int count) {
+		Paper.count = count;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -23,17 +27,16 @@ public class Paper implements Serializable {
 		this.date = date;
 	}
 
+	public static int getCount() {
+		return count;
+	}
+
 	public void setAuthor(String author) {
 		this.author = author;
 	}
 
 	public void setISBN(int iSBN) {
 		ISBN = iSBN;
-	}
-
-	void remove() {
-		id = 0; // Won't remove the object, because it costs too much. Cheaper
-				// not to save it after the end of work.
 	}
 
 	public int getId() {

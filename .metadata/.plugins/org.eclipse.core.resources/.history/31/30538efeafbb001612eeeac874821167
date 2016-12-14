@@ -1,9 +1,0 @@
-package knightarcherandfootman;
-
-public class Pikeman extends Troop {
-
-	public Pikeman() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

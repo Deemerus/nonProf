@@ -8,24 +8,28 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class app {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-		ArrayList<Paper> library = new ArrayList<Paper>();
+		List<Paper> library = new LinkedList<Paper>();
 		library = load();
 		String command;
 		Paper filter = new Paper();
-		filter = clearFilter(filter);
+		Paper.setCount(library.size());
+		clearFilter(filter);
 		for (;;) {
 			System.out.println("Type in command.");
 			command = input.nextLine();
 			if (command.equalsIgnoreCase("add")) {
-				library.add(add(input));
+				add(input, library);
 			} else if (command.equalsIgnoreCase("remove")) {
 				library = remove(library, input);
+				Paper.setCount(Paper.getCount()-1);
 			} else if (command.equalsIgnoreCase("save")) {
 				save(library);
 			} else if (command.equalsIgnoreCase("print")) {
@@ -35,7 +39,7 @@ public class app {
 			} else if (command.equalsIgnoreCase("addFilter")) {
 				addFilter(filter, input);
 			} else if (command.equalsIgnoreCase("clearfilter")) {
-				filter = clearFilter(filter);
+				clearFilter(filter);
 			} else
 				System.out.println("Wrong command.");
 		}
@@ -44,30 +48,31 @@ public class app {
 		input.close();
 	}
 
-	static Paper add(Scanner input) {
+	static void add(Scanner input, List<Paper> library) {
 		System.out.println("What kind of paper would you like to add?");
 		String type = input.nextLine();
-		Paper paper = null;
 		if (type.equalsIgnoreCase("book")) {
-			paper = new Book(input);
+			library.add(new Book(input));
 		} else if (type.equalsIgnoreCase("newspaper")) {
-			paper = new Newspaper(input);
+			library.add(new Newspaper(input));
 		} else if (type.equalsIgnoreCase("letter")) {
-			paper = new Letter(input);
+			library.add(new Letter(input));
 		} else {
 			System.out.println("Wrong type of paper.");
 		}
-		return paper;
 	}
 
-	static ArrayList<Paper> remove(ArrayList<Paper> library, Scanner input) {
+	static List<Paper> remove(List<Paper> library, Scanner input) {
 		System.out.println("Type in the ID of book you want to remove from database.");
 		int id = Integer.parseInt(input.nextLine());
-		library.get(id - 1).remove();
+		library.remove(id-1);
+		for(id--;id<library.size();id++){
+			library.get(id).setId(id-1);;
+		}
 		return library;
 	}
 
-	static void save(ArrayList<Paper> library) {
+	static void save(List<Paper> library) {
 		try (FileOutputStream fo = new FileOutputStream("database.bin")) {
 			ObjectOutputStream os = new ObjectOutputStream(fo);
 			os.writeInt(library.size());
@@ -82,7 +87,7 @@ public class app {
 
 	}
 
-	static ArrayList<Paper> load() {
+	static List<Paper> load() {
 		ArrayList<Paper> library = new ArrayList<Paper>();
 		try (FileInputStream fi = new FileInputStream("database.bin")) {
 			ObjectInputStream os = new ObjectInputStream(fi);
@@ -104,11 +109,10 @@ public class app {
 		return library;
 	}
 
-	static void print(ArrayList<Paper> library, Paper filter) {
+	static void print(List<Paper> library, Paper filter) {
 		System.out.printf("ID\tTitle\tAuthor\tRelease date\tISBN\n");
 		for (Paper paper : library) {
-			if (paper.getId() != 0
-					& (filter.getTitle().equals("null") | filter.getTitle().equalsIgnoreCase(paper.getTitle()))
+			if ((filter.getTitle().equals("null") | filter.getTitle().equalsIgnoreCase(paper.getTitle()))
 					& (filter.getAuthor().equals("null") | filter.getAuthor().equalsIgnoreCase(paper.getAuthor()))
 					& (filter.getISBN() == 0 | filter.getISBN() == paper.getISBN())) {
 				System.out.printf(paper.getId() + ":\t" + paper.getTitle() + "\t" + paper.getAuthor() + "\t"
@@ -134,11 +138,10 @@ public class app {
 		return filter;
 	}
 
-	static Paper clearFilter(Paper filter) {
+	static void clearFilter(Paper filter) {
 		filter.setAuthor("null");
 		filter.setDate(0);
 		filter.setISBN(0);
 		filter.setTitle("null");
-		return filter;
 	}
 }
