@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -38,6 +40,8 @@ public class app {
 				addFilter(filter, input);
 			} else if (command.equalsIgnoreCase("clearfilter")) {
 				clearFilter(filter);
+			} else if (command.equalsIgnoreCase("sort")) {
+				sort(library, filter, input);
 			} else
 				System.out.println("Wrong command.");
 		}
@@ -127,5 +131,47 @@ public class app {
 		filter.setDate(0);
 		filter.setISBN(0);
 		filter.setTitle("null");
+	}
+
+	static void sort(List<Paper> library, Paper filter, Scanner input){
+		List<Paper> sortedList = library;
+		System.out.println("By what do you want to sort?");
+		String sortBy = input.nextLine();
+		if(sortBy.equalsIgnoreCase("author")){
+			Collections.sort(sortedList, new Comparator<Paper>(){
+			public int compare(Paper arg0, Paper arg1) {
+				return arg0.getAuthor().compareTo(arg1.getAuthor());
+			}
+			});
+		} else if(sortBy.equalsIgnoreCase("title")){
+			Collections.sort(sortedList, new Comparator<Paper>(){
+				public int compare(Paper arg0, Paper arg1) {
+					return arg0.getTitle().compareTo(arg1.getTitle());
+				}
+			});
+		} else if(sortBy.equalsIgnoreCase("ISBN")){
+			Collections.sort(sortedList, new Comparator<Paper>(){
+				public int compare(Paper arg0, Paper arg1) {
+					if(arg0.getISBN()>arg1.getISBN()){
+						return 1;
+					} else if(arg0.getISBN()<arg1.getISBN()){
+						return -1;
+					} else return 0;
+				}
+			}); 
+		} else if(sortBy.equalsIgnoreCase("date")){
+			Collections.sort(sortedList, new Comparator<Paper>(){
+				public int compare(Paper arg0, Paper arg1) {
+					if(arg0.getDate()>arg1.getDate()){
+						return 1;
+					} else if(arg0.getDate()<arg1.getDate()){
+						return -1;
+					} else return 0;
+				}
+			}); 
+		} else{
+			System.out.println("There's no such way to sort.");
+		}
+		print(sortedList, filter);
 	}
 }

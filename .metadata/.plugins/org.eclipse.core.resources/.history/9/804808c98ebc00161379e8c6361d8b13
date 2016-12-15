@@ -1,9 +1,0 @@
-package librarycatalogue;
-import java.util.ArrayList;
-
-public class Book extends Paper {
-	private static int ISBN;
-	private static String author;
-	private ArrayList<String> grade = new ArrayList<String>();
-	private static String publisher;
-}

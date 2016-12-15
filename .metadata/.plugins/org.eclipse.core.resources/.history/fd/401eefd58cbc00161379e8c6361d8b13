@@ -1,8 +1,0 @@
-package librarycatalogue;
-
-public class Paper {
-	public static int id;
-	private static String title = null;
-	private static int year;
-	protected int count;
-}
