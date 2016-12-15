@@ -173,7 +173,7 @@ public class app {
 			System.out.println("There's no such way to sort.");
 		}
 		print(library, filter);
-		Collections.sort(library, new Comparator<Paper>() {					//////////      !!!!!!!!!!!!! find a way to print it without sorting twice
+		Collections.sort(library, new Comparator<Paper>() {
 			public int compare(Paper arg0, Paper arg1) {
 				if (arg0.getId() > arg1.getId()) {
 					return 1;

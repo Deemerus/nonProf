@@ -59,8 +59,4 @@ public class Paper implements Serializable {
 		return ISBN;
 	}
 
-	public String toString() {
-		return id + ":\t" + title + "\t" + author + "\t" + date + "\t" + ISBN;
-	}
-
 }

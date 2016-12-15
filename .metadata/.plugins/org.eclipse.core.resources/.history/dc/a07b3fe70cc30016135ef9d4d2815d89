@@ -133,22 +133,24 @@ public class app {
 	}
 
 	static void sort(List<Paper> library, Paper filter, Scanner input) {
+		List<Paper> sortedList = new LinkedList<Paper>();
+		Collections.copy(sortedList, library);
 		System.out.println("By what do you want to sort?");
 		String sortBy = input.nextLine();
 		if (sortBy.equalsIgnoreCase("author")) {
-			Collections.sort(library, new Comparator<Paper>() {
+			Collections.sort(sortedList, new Comparator<Paper>() {
 				public int compare(Paper arg0, Paper arg1) {
 					return arg0.getAuthor().compareTo(arg1.getAuthor());
 				}
 			});
 		} else if (sortBy.equalsIgnoreCase("title")) {
-			Collections.sort(library, new Comparator<Paper>() {
+			Collections.sort(sortedList, new Comparator<Paper>() {
 				public int compare(Paper arg0, Paper arg1) {
 					return arg0.getTitle().compareTo(arg1.getTitle());
 				}
 			});
 		} else if (sortBy.equalsIgnoreCase("ISBN")) {
-			Collections.sort(library, new Comparator<Paper>() {
+			Collections.sort(sortedList, new Comparator<Paper>() {
 				public int compare(Paper arg0, Paper arg1) {
 					if (arg0.getISBN() > arg1.getISBN()) {
 						return 1;
@@ -159,7 +161,7 @@ public class app {
 				}
 			});
 		} else if (sortBy.equalsIgnoreCase("date")) {
-			Collections.sort(library, new Comparator<Paper>() {
+			Collections.sort(sortedList, new Comparator<Paper>() {
 				public int compare(Paper arg0, Paper arg1) {
 					if (arg0.getDate() > arg1.getDate()) {
 						return 1;
@@ -172,8 +174,8 @@ public class app {
 		} else {
 			System.out.println("There's no such way to sort.");
 		}
-		print(library, filter);
-		Collections.sort(library, new Comparator<Paper>() {					//////////      !!!!!!!!!!!!! find a way to print it without sorting twice
+		print(sortedList, filter);
+		Collections.sort(sortedList, new Comparator<Paper>() {
 			public int compare(Paper arg0, Paper arg1) {
 				if (arg0.getId() > arg1.getId()) {
 					return 1;

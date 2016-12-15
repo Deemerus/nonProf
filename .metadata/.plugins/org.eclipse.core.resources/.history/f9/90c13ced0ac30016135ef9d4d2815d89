@@ -60,7 +60,8 @@ public class Paper implements Serializable {
 	}
 
 	public String toString() {
-		return id + ":\t" + title + "\t" + author + "\t" + date + "\t" + ISBN;
+		return paper.getId() + ":\t" + paper.getTitle() + "\t" + paper.getAuthor() + "\t"
+				+ paper.getDate() + "\t" + paper.getISBN() + "\n";
 	}
 
 }
