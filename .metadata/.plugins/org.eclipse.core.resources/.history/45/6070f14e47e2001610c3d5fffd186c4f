@@ -1,0 +1,49 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Maze {
+	int[][] maze;
+	private int length;
+	private int height;
+	private int pointsOfInterest[][] = new int[8][2];
+	private int distance[][]=new int[8][8];
+
+	public int getLength() {
+		return length;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	Maze() {
+		try (Scanner in = new Scanner(new File("maze.bin"))) {
+			this.length = in.nextLine().length();
+			int i = 1;
+			for (; in.hasNextLine();) {
+				char[] charArray = in.nextLine().toCharArray();
+				for (int j = 0; j < charArray.length; j++) {
+					if ((int) charArray[j] >= 48 && (int) charArray[j] <= 57) {
+						this.pointsOfInterest[(int) charArray[j] - 48][0] = i;
+						this.pointsOfInterest[(int) charArray[j] - 48][1] = j;
+					}
+				}
+				i++;
+			}
+			this.height = i;
+		} catch (FileNotFoundException e) {
+			System.out.println("File maze.bin not found.");
+		}
+	}
+	public int getPointOfInterest(int pointNo, int coord){
+		return this.pointsOfInterest[pointNo][coord];
+	}
+	public void solve (int startPoint){
+		try(Scanner in = new Scanner(new File("maze.bin"))){
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("File maze.bin not found.");
+		}
+	}
+}

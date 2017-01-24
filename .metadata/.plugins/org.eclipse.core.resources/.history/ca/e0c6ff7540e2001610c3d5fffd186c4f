@@ -1,0 +1,16 @@
+import java.io.FileReader;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+
+	}
+	
+	Maze load(){
+		Maze maze = new Maze();
+		Scanner in = new Scanner(File file = new File(maze.bin));
+		return maze;
+	}
+
+}

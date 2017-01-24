@@ -1,0 +1,12 @@
+public class App {
+
+	public static void main(String[] args) {
+		Maze maze = new Maze();
+		char a = '7';
+		int b = (int) a;
+		System.out.println(b);
+
+	}
+	
+	
+}
