@@ -3,19 +3,11 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Maze {
-	int[][] maze;
+	private int[][] maze;
 	private int length;
 	private int height;
 	private int pointsOfInterest[][] = new int[8][2];
 	private int distance[][] = new int[8][8];
-
-	public int getLength() {
-		return length;
-	}
-
-	public int getHeight() {
-		return height;
-	}
 
 	Maze() {
 		try (Scanner in = new Scanner(new File("maze.bin"))) {
@@ -37,12 +29,8 @@ public class Maze {
 		}
 	}
 
-	public int getPointOfInterest(int pointNo, int coord) {
-		return this.pointsOfInterest[pointNo][coord];
-	}
-
 	public void solve(int startPoint) {
-		this.maze = new int[this.getHeight()][this.getLength()];
+		this.maze = new int[this.height][this.length];
 		try (Scanner in = new Scanner(new File("maze.bin"))) {
 			for (int i = 0; in.hasNextLine(); i++) {
 				char[] charArray = in.nextLine().toCharArray();
