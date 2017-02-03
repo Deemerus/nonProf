@@ -98,6 +98,7 @@ public class Maze {
 	}
 	public void printNodesNeighbours(){
 		for(Node node:nodes){
+			node.removeNeighbourDuplicates();
 			node.printNeighbours();
 		}
 	}
