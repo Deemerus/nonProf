@@ -1,0 +1,10 @@
+
+public class InterestPoint {
+	private int height;
+	private int length;
+
+	InterestPoint(int height, int length) {
+		this.height = height;
+		this.length = length;
+	}
+}

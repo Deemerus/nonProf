@@ -1,0 +1,13 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class App {
+
+	public static void main(String[] args) {
+		Map<Integer, Node> nodes = new HashMap<Integer, Node>();
+		try(Scanner scanner = new Scanner(new File(graph2)){
+			
+		}
+
+	}
+}

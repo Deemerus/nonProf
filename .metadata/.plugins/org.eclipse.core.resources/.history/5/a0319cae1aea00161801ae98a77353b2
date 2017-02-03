@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Node {
+	List<Neighbour> neighbours = new ArrayList<Neighbour>();
+	
+	public void addNeighbour(Neighbour neighbour){
+		neighbours.add(neighbour);
+	}
+	
+	public void printNeighbours(){
+		for(Neighbour neighbour:neighbours){
+			
+		}
+	}
+}

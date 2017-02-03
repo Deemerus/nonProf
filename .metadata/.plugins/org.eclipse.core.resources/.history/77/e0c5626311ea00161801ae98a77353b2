@@ -1,0 +1,11 @@
+
+public class InterestPoint {
+	private int ID;
+	private int height;
+	private int length;
+	InterestPoint(int ID,int height,int length){
+		this.ID=ID;
+		this.height=height;
+		this.length=length;
+	}
+}

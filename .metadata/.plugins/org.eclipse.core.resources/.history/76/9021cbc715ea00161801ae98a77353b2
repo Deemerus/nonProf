@@ -1,0 +1,21 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		Map<Integer, Neighbour> nodes = new HashMap<Integer, Neighbour>();
+		try(Scanner scanner = new Scanner(new File("graph2"))){
+			while(scanner.hasNextLine()){
+				nodes.put(scanner.nextInt()*1000+scanner.nextInt(), new Node());
+				
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("File graph2 not found.");
+		}
+
+	}
+}

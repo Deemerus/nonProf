@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Node {
+	List<Neighbour> neighbours = new ArrayList<Neighbour>();
+	int value = 0;
+
+	public void addNeighbour(Neighbour neighbour) {
+		neighbours.add(neighbour);
+	}
+
+	public void printNeighbours() {
+		for (Neighbour neighbour : neighbours) {
+			System.out.println(neighbour.getDistance());
+		}
+	}
+
+	public void countDistance(int id, int distance) {
+		
+	}
+
+}

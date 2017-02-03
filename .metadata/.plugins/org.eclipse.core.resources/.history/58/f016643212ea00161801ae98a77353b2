@@ -1,0 +1,5 @@
+public class Node {
+	private int ID;
+	private List<Neighbour> neighbours = new ArrayList<Neighbour>();
+
+}

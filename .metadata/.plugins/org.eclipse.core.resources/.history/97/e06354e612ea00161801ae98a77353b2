@@ -1,0 +1,8 @@
+
+public class App {
+
+	public static void main(String[] args) {
+		Map<int, Node> nodes = new HashMap<int, Node>();
+	}
+
+}

@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public class Node {
+	private List<Neighbour> neighbours = new ArrayList<Neighbour>();
+	private int[] distanceFrom = new int[8];
+
+	public void addNeighbour(Neighbour neighbour) {
+		neighbours.add(neighbour);
+	}
+
+	public void printNeighbours() {
+		for (Neighbour neighbour : neighbours) {
+			System.out.println(neighbour.getDistance());
+		}
+	}
+
+	public void countDistance(Map<Integer, Node> nodes) {
+		for(Neighbour neighbour: neighbours){
+			if(nodes.get(neighbour.getID()).value==0||nodes.get(neighbour.getID()).value>this.value+neighbour.getDistance()){
+				nodes.get(neighbour.getID()).value=this.value+neighbour.getDistance();
+				nodes.get(neighbour.getID()).countDistance(nodes);
+			}
+		}
+	}
+
+}
