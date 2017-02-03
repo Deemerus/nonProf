@@ -1,0 +1,16 @@
+
+public class Direction {
+	private int height;
+	private int length;
+	public int getHeight() {
+		return height;
+	}
+	public int getLength() {
+		return length;
+	}
+	Direction(int height, int length){
+		this.height=height;
+		this.length=length;
+	}
+	
+}

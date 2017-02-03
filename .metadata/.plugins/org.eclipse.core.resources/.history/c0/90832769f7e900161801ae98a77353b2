@@ -1,0 +1,6 @@
+
+public class Neighbour {
+	private int height;
+	private int length;
+	private int distance;
+}

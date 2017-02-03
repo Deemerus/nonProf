@@ -1,0 +1,19 @@
+
+public class Node {
+	private int height;
+	private int length;
+	private int[] leftNeighbour = new int[3];
+
+	Node(int height, int length) {
+		this.height = height;
+		this.length = length;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public int getLength() {
+		return length;
+	}
+}
