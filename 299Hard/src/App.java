@@ -43,5 +43,8 @@ public class App {
 			}
 			System.out.println();
 		}
+		System.out.println(pointsOfInterest[0]);
+		nodes.get(pointsOfInterest[0]).findPath(nodes, 1);
+		System.out.println(pointsOfInterest[1]);
 	}
 }
