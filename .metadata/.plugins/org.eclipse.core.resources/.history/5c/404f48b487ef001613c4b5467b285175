@@ -1,0 +1,36 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Tablature {
+	private String[] tab = new String[6];
+	private Map<Integer, String> notesValue = new HashMap<Integer, String>();
+	
+	Tablature(){
+		Scanner scanner = new Scanner(System.in);
+		for(int i=0;i<6;i++){
+			tab[i]=scanner.nextLine();
+		}
+		scanner.close();
+		notesValue.put(1, "A");
+		notesValue.put(2, "A");
+		notesValue.put(3, "A");
+		notesValue.put(4, "A");
+		notesValue.put(5, "A");
+		notesValue.put(6, "A");
+		notesValue.put(7, "A");
+		notesValue.put(8, "A");
+		notesValue.put(9, "A");
+		notesValue.put(10, "A");
+		notesValue.put(11, "A");
+		notesValue.put(12, "A");
+	}
+	
+	public void printNotes(){
+		for(int i=0;i<tab[0].length();i++){
+			for(int j=0;j<6;j++){
+				
+			}
+		}
+	}
+}

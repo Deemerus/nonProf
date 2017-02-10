@@ -1,0 +1,4 @@
+
+public class Tablature {
+	String[] tab = new String[6];
+}

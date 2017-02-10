@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class Tablature {
+	public String[] tab = new String[6];
+	
+	Tablature(){
+		Scanner scanner = new Scanner(System.in);
+		for(int i=0;i<6;i++){
+			tab[i]=scanner.nextLine();
+		}
+		scanner.close();
+	}
+	
+	public 
+}

@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Tablature {
+	private String[] tab = new String[6];
+	private Map<int, string> notesValue = new HashMap();
+	
+	Tablature(){
+		Scanner scanner = new Scanner(System.in);
+		for(int i=0;i<6;i++){
+			tab[i]=scanner.nextLine();
+		}
+		scanner.close();
+	}
+	
+	public void printNotes(){
+		for(int i=0;i<tab[0].length();i++){
+			for(int j=0;j<6;j++){
+				
+			}
+		}
+	}
+}

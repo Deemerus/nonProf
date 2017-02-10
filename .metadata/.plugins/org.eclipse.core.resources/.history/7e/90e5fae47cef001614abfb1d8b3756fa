@@ -1,0 +1,30 @@
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
+public class App {
+	
+	private static String toPattern(String string){
+		List<Character> keys = new LinkedList<Character>();
+		String string = new String("")
+		for(int i=0;i<string.length();i++){
+			for(Character key:keys){
+				if(string.charAt(i)==key){
+					
+				}
+			}
+		}
+		return pattern;
+	}
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String string = scanner.nextLine();
+		Pattern pattern = toPattern(string);
+		
+		
+		scanner.close();
+	}
+
+}
