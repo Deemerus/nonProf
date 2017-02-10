@@ -1,9 +1,0 @@
-
-public class Neighbour {
-	private int ID;
-	private int distance;
-	Neighbour(id, distance){
-		this.ID=id;
-		this.distance=distance;
-	}
-}

@@ -1,5 +1,0 @@
-
-public class Neighbours {
-	private int ID;
-	private int distance;
-}

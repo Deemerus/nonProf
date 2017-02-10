@@ -1,0 +1,48 @@
+import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
+public class App {
+
+	public static void main(String[] args) {
+		try(Scanner scanner = new Scanner(System.in)){
+			Pattern pattern2 = Pattern.compile(getPattern(scanner.nextLine()));		
+		}
+		try(Scanner scanner = new Scanner(new File("enable1.txt"))){
+			
+		}
+		/*Matcher matcher = pattern2.matcher(scanner.nextLine());
+		boolean found = false;
+		while (matcher.find()) {
+			System.out.println("I found the text " + matcher.group());
+			found = true;
+		}
+		if (!found) {
+			System.out.println("not found.");
+		}
+
+		scanner.close();
+		*/
+	}
+	public static String getPattern(String toPattern){
+		String pattern = new String();
+		Boolean check = false;
+		List<Character> chars = new LinkedList<Character>();
+		for(int i=0;i<toPattern.length();i++){
+			for(int j=0;j<chars.size();j++){
+				if(toPattern.charAt(i)==chars.get(j)){
+					pattern+="\\" + (j+1);
+					check=true;
+				}
+			}
+			if(!check){
+				pattern+="(.)";
+				chars.add(toPattern.charAt(i));
+			}
+			check=false;
+		}
+		return pattern;
+	}
+}

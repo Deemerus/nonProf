@@ -1,0 +1,35 @@
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class App {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String toPattern = scanner.nextLine();
+		String pattern = new String();
+		List<Character> chars = new LinkedList<Character>();
+		for(int i=0;i<toPattern.length();i++){
+			for(Character symbol:chars){
+				if(toPattern.charAt(i)==symbol){
+					
+				}
+			}
+		}
+		
+		Pattern pattern = Pattern.compile(scanner.nextLine());
+		Matcher matcher = pattern.matcher(scanner.nextLine());
+		boolean found = false;
+		while (matcher.find()) {
+			System.out.println("I found the text " + matcher.group());
+			found = true;
+		}
+		if (!found) {
+			System.out.println("not found.");
+		}
+
+		scanner.close();
+	}
+}
