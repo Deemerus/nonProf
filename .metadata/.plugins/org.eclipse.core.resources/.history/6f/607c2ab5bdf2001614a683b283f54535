@@ -1,0 +1,15 @@
+/*
+ *  Solve the following maze returning the path (length) visiting nodes labelled 1 to 7 starting from 0.
+ */
+public class App {
+
+	public static void main(String[] args) {
+		Maze maze = new Maze();
+		for(int i=0;i<=7;i++){
+			maze.solve(i);
+		}
+		System.out.println(maze.optimizeDistance());
+	}
+	
+	
+}

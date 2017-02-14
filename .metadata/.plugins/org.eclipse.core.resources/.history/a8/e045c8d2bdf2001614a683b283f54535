@@ -1,0 +1,11 @@
+/*
+ * We will be writing a program that takes in tablature and outputs the names of the notes.
+ */
+public class App {
+
+	public static void main(String[] args) {
+		Tablature tab = new Tablature();
+		tab.printNotes();
+	}
+
+}
